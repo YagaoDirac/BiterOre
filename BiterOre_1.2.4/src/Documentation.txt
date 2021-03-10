@@ -1,0 +1,4 @@
+The data is organized in a tree.
+Root is Root-bitore_tick_container, it contains Actors. This container is unique for each surface. For now, the whole scenario has only 1 surface. It means this container is unique.
+Each Actor contains some components. Atm, one actor contains 1 movement component and a few content components.
+Component level is the very leaf-end and doesn't contain any child nodes.

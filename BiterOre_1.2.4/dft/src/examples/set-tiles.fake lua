@@ -1,0 +1,53 @@
+This method helps clear the whole area. It sets all the tiles to void and then to "grass-1".
+Setting all tiles to void helps removing all the entities. Or if void is what you need, comment the 4 lines for grass-1.
+
+script.on_event(defines.events.on_chunk_generated, function(event)
+    --game.print(event.position.x .."  " ..  event.position.y)
+
+    if event.surface == main_surface then
+        local tiles = {}
+        for x = event.area.left_top.x, event.area.right_bottom.x-1 do
+            for y = event.area.left_top.y, event.area.right_bottom.y-1 do
+                table.insert(tiles, { name = "out-of-map",position = {x,y} })
+            end
+        end
+        main_surface.set_tiles(tiles, false)
+        for k, v in pairs(tiles) do
+            v.name = "grass-1"
+        end
+        main_surface.set_tiles(tiles, false)
+    end
+
+end)
+
+
+
+
+
+This method utilizes the default terrain generator, removes water and rocks. It literally gives you a nice and clear surface.
+
+script.on_event(defines.events.on_chunk_generated, function(event)
+    --game.print(event.position.x .."  " ..  event.position.y)
+
+    if event.position.x>-5 and event.position.x<5 and event.position.y>-5 and event.position.y<5
+    then
+        if event.surface == main_surface then
+            local surface = event.surface
+            local tiles = {}
+            for x = event.area.left_top.x, event.area.right_bottom.x-1 do
+                for y = event.area.left_top.y, event.area.right_bottom.y-1 do
+                    local tile_name = event.surface.get_tile(x,y).name
+                    if tile_name == "water" or tile_name == "deepwater"
+                    then table.insert(tiles, { name = "grass-2",position = {x,y} })
+                    else table.insert(tiles, { name = tile_name,position = {x,y} })
+                    end
+                end
+            end
+            surface.set_tiles(tiles, true)
+            local simple_entities = surface.find_entities_filtered{event.area, type = "simple-entity"}
+            for k,v in pairs(simple_entities)do
+               v.destroy()
+            end
+        end
+    end
+end)

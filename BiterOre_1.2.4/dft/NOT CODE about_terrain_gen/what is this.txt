@@ -1,0 +1,6 @@
+According to what I know, there are 2 timing to prevent the terrain gen algo from generating rocks and trees.
+The first one is in the data.lua. I don't remember what this stage is called in official docs. Actually this stage includes data.lua, post-data.lua and some other files. In this way, entity prototypes are marked as non-auto-gen. Nothing needs to be done in control.lua in order to get a clear new surface. But this method modifies the prototypes, means all the other mods that has anything to do with some specific property could have a chance to go wrong due to what they are based on is now not the exact.
+The second one is in the control.lua. I showed this in this library. This is a little bit slower because it generates rocks and then finds then and wipes them out. This is a per surface method, controllable.
+
+More info:
+https://forums.factorio.com/viewtopic.php?f=28&t=92477

@@ -1,0 +1,12 @@
+{
+"name": "BiterOre",
+"version": "1.2.4",
+"factorio_version": "1.1",
+"title": "[Scenario]Biter with Ore, the BitOre",
+"author": "yagaodirac",
+"dependencies": [ "base >= 1.0" ],
+"description": "This is a scenario. All the resources are generated along with the enemies. Have fun."
+}
+
+
+

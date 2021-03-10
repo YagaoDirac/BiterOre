@@ -1,0 +1,38 @@
+All the names of rocks and trees.
+每一种东西，都要有
+
+散布的收束
+
+不稳定的生成东西的速率。
+
+per source 移动速度。
+
+
+后面的和用户的交互的部分，想一下再说，现在思路都没有。
+如果有朋友看到这个文档了，想闲聊的，欢迎来mod站的相关页面。
+反正我空了就会想一下。
+
+后面可能会基于这个框架改成别的模式。
+
+
+
+
+
+
+常用指令
+/c game.players[1].teleport(-3200,0)
+/c game.speed = 0.2
+/c game.print(game.tick/60/60/60)
+
+
+gvv:
+serpent.block(game.players[1].position)
+
+宣传
+
+/c rendering.draw_text{text="Please download this scenario.", surface=game.surfaces[1], target={x=0,y=0}, color={1,1,1}, scale=5, time_to_live=88888888}
+rendering.draw_text{text="请下载这个场景。", surface=game.surfaces[1], target={x=0,y=2}, color={1,1,1}, scale=5, time_to_live=88888888}
+rendering.draw_text{text="This text doesn't show after the game restarts.", surface=game.surfaces[1], target={x=0,y=5}, color={1,1,1}, scale=5, time_to_live=88888888}
+rendering.draw_text{text="这个文本在游戏重开后不会显示。", surface=game.surfaces[1], target={x=0,y=7}, color={1,1,1}, scale=5, time_to_live=88888888}
+rendering.draw_text{text="mods.factorio.com/mod/BiterOre", surface=game.surfaces[1], target={x=0,y=10}, color={1,1,1}, scale=5, time_to_live=88888888}
+
